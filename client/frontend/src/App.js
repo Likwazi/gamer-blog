@@ -6,19 +6,17 @@ import SiteHeader from "./components/SiteHeader";
 
 function App() {
   return (
-    <div className="App">
+    <div  className="bg-gray-100 font-sans mx-0 my-7">
+      <div className="text-lg mx-auto my-10 w-full max-w-2xl p-4 box-border">
+      <Router>
       <SiteHeader/>
       <Routes>
-        <Route exact path="/">
-          <Homepage/>
-        </Route>
-        <Route path="/details/:id">
-          <ReviewDetails/>
-        </Route>
-        <Route path="/category/:id">
-          <Category/>
-        </Route>
+        <Route exact path="/" element={<Homepage/>}/>
+        <Route path="/details/:id" element={<ReviewDetails/>}/>
+        <Route path="/category/:id" element={<Category/>}/> 
       </Routes>
+      </Router>
+      </div>
     </div>
   );
 }
