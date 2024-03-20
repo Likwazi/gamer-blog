@@ -6,19 +6,19 @@ const CATEGORY = gql`
  query GetCategory($id: ID!) {
   category(id: $id) {
     data{
-      id
+      id,
       attributes{
-        name
+        name,
         reviews{
           data{
-            id
+            id,
             attributes{
-              title
-              body
-              rating
+              title,
+              body,
+              rating,
               categories{
                 data{
-                  id
+                  id,
                   attributes{
                     name
                   }
@@ -42,7 +42,19 @@ export default function Category() {
   console.log(data)
   return (
     <div>
-      <h2>{data.category.data}</h2>
+      <h2>{data.category.data.attributes.name}</h2>
+      <div>{data.category.data.reviews?.data[0].attributes.map((review) => (
+        <div key={review.id}>
+          <Link to={`/review/${review.id}`}>{review.attributes?.title}</Link>
+          <div>{review}</div>
+          <div>{review.attributes.categories.data.map((category) => 
+            <div key={category.id}>{category.attributes.name}</div>
+          )}</div>
+        </div>
+      ))}
+         
+
+     </div>
     </div>
   )
 }

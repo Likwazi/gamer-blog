@@ -24,7 +24,7 @@ export default function ReviewDetails() {
   });
   if(loading) return <div>Loading...</div>
   if(error) return <div>Error: {error}</div>
-  console.log(data);
+  //console.log(data);
   return (
     <div>
        <div className="bg-white mx-auto my-16 p-1 md:p-5 md:pl-24 md:pr-5 relative">
