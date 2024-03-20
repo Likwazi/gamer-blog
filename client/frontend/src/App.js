@@ -24,6 +24,14 @@ function App() {
                 </Routes>
             </ApolloProvider>
            </Router>
+      <Router>
+      <SiteHeader/>
+      <Routes>
+        <Route exact path="/" element={<Homepage/>}/>
+        <Route path="/details/:id" element={<ReviewDetails/>}/>
+        <Route path="/category/:id" element={<Category/>}/> 
+      </Routes>
+      </Router>
       </div>
     </div>
   );
